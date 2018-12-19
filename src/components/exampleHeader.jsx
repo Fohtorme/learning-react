@@ -4,7 +4,10 @@ class ExampleHeader extends Component {
   state = {};
 
   render() {
-    return <h1>{this.props.title}</h1>;
+    const divStyle = {
+      color: "red"
+    };
+    return <div style={divStyle}>{this.props.title}</div>;
   }
 }
 
