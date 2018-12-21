@@ -6,6 +6,10 @@ import ObjectsExample from "./examples/objects";
 import ThisKeyword from "./examples/thisKeyword";
 import ArrowFunction from "./examples/arrowFunction";
 import ArrowFunctionAndThis from "./examples/arrowFunctionAndThis";
+import ArrayMapExample from "./examples/arrayMap";
+import ObjectDesctructuringExample from "./examples/objectDestructuring";
+import SpreadOperatorExample from "./examples/spreadOperator";
+import ClassesExample from "./examples/classesExample";
 
 class Examples extends Component {
   state = {};
@@ -35,6 +39,22 @@ class Examples extends Component {
         <div>
           <ExampleHeader title="Example 6 - Arrow Function and this" />
           <ArrowFunctionAndThis />
+        </div>
+        <div>
+          <ExampleHeader title="Example 7 - ArrayMap" />
+          <ArrayMapExample />
+        </div>
+        <div>
+          <ExampleHeader title="Example 8 - Object destructuring" />
+          <ObjectDesctructuringExample />
+        </div>
+        <div>
+          <ExampleHeader title="Example 9 - Spread operator" />
+          <SpreadOperatorExample />
+        </div>
+        <div>
+          <ExampleHeader title="Example 10 - Classes" />
+          <ClassesExample />
         </div>
       </React.Fragment>
     );
