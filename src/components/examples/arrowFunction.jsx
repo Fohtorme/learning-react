@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ClickAndSeeLog from "../general/btnClickAndSeeLog";
 
 class ArrowFunction extends Component {
   state = {};
@@ -42,9 +43,7 @@ class ArrowFunction extends Component {
   };
 
   render() {
-    return (
-      <button onClick={this.example}>Click and see the console log</button>
-    );
+    return <ClickAndSeeLog onClick={this.example} />;
   }
 }
 

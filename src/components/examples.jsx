@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ExampleHeader from "./exampleHeader";
+import ExampleHeader from "./general/exampleHeader";
 import HelloWorld from "./examples/helloWorld";
 import LetVarConst from "./examples/letVarConst";
 import ObjectsExample from "./examples/objects";
