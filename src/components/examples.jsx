@@ -10,6 +10,7 @@ import ArrayMapExample from "./examples/arrayMap";
 import ObjectDesctructuringExample from "./examples/objectDestructuring";
 import SpreadOperatorExample from "./examples/spreadOperator";
 import ClassesExample from "./examples/classesExample";
+import DynamicItemList from "./examples/dynamicList";
 
 class Examples extends Component {
   state = {};
@@ -17,23 +18,25 @@ class Examples extends Component {
     const showExample = function(code, name, Component) {
       return (
         <div>
-          <ExampleHeader title={`Example ${code} - ${name}`} />
+          <ExampleHeader title={` *** Example ${code} - ${name}`} />
           <Component />
         </div>
       );
     };
+    let c = 0;
     return (
       <React.Fragment>
-        {showExample(1, "Hello World", HelloWorld)}
-        {showExample(2, "Let vs Var vs Const", LetVarConst)}
-        {showExample(3, "Objects", ObjectsExample)}
-        {showExample(4, "This Keyword", ThisKeyword)}
-        {showExample(5, "Arrow Function", ArrowFunction)}
-        {showExample(6, "Arrow Function and this", ArrowFunctionAndThis)}
-        {showExample(7, "ArrayMap", ArrayMapExample)}
-        {showExample(8, "Object destructuring", ObjectDesctructuringExample)}
-        {showExample(9, "Spread operator", SpreadOperatorExample)}
-        {showExample(10, "Classes and modules", ClassesExample)}
+        {showExample(++c, "Hello World", HelloWorld)}
+        {showExample(++c, "Let vs Var vs Const", LetVarConst)}
+        {showExample(++c, "Objects", ObjectsExample)}
+        {showExample(++c, "This Keyword", ThisKeyword)}
+        {showExample(++c, "Arrow Function", ArrowFunction)}
+        {showExample(++c, "Arrow Function and this", ArrowFunctionAndThis)}
+        {showExample(++c, "ArrayMap", ArrayMapExample)}
+        {showExample(++c, "Object destructuring", ObjectDesctructuringExample)}
+        {showExample(++c, "Spread operator", SpreadOperatorExample)}
+        {showExample(++c, "Classes and modules", ClassesExample)}
+        {showExample(++c, "Dynamic Item List", DynamicItemList)}
       </React.Fragment>
     );
   }

@@ -4,11 +4,7 @@ class ClickAndSeeLog extends Component {
   state = {};
   render() {
     return (
-      <button
-        type="button"
-        className="btn btn-primary"
-        onClick={this.props.onClick}
-      >
+      <button className="btn btn-primary" onClick={this.props.onClick}>
         Click and see the console log
       </button>
     );

@@ -5,7 +5,8 @@ class ExampleHeader extends Component {
 
   render() {
     const divStyle = {
-      color: "red"
+      color: "red",
+      fontSize: 20
     };
     return <div style={divStyle}>{this.props.title}</div>;
   }
