@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ExampleHeader from "./general/exampleHeader";
+import ExampleContainer from "./general/exampleContainer";
 import HelloWorld from "./examples/helloWorld";
 import LetVarConst from "./examples/letVarConst";
 import ObjectsExample from "./examples/objects";
@@ -18,10 +18,9 @@ class Examples extends Component {
   render() {
     const showExample = function(code, name, Component) {
       return (
-        <div>
-          <ExampleHeader title={` *** Example ${code} - ${name}`} />
+        <ExampleContainer title={`*** Example ${code} - ${name}`}>
           <Component />
-        </div>
+        </ExampleContainer>
       );
     };
     let c = 0;
