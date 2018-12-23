@@ -38,7 +38,6 @@ class Examples extends Component {
         {showExample(++c, "Spread operator", SpreadOperatorExample)}
         {showExample(++c, "Classes and modules", ClassesExample)}
         {showExample(++c, "Dynamic Item List", DynamicItemList)}
-        {showExample(++c, "Plural modifier", DynamicItemList)}
         {showExample(++c, "Plural modifier", pluralModifierReact())}
       </React.Fragment>
     );

@@ -33,8 +33,10 @@ class DynamicItemList extends Component {
   };
 
   handleDeleteItem = item => {
-    delete this.state.items[this.state.items.indexOf(item)];
-    this.setState({});
+    // The both way bellow have the same result:
+    // delete this.state.items[this.state.items.indexOf(item)];
+    const items = this.state.items.filter(i => i.id !== item.id);
+    this.setState({ items });
   };
 
   handleAddItem = () => {
