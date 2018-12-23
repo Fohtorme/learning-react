@@ -11,6 +11,7 @@ import ObjectDesctructuringExample from "./examples/objectDestructuring";
 import SpreadOperatorExample from "./examples/spreadOperator";
 import ClassesExample from "./examples/classesExample";
 import DynamicItemList from "./examples/dynamicList";
+import { pluralModifierReact } from "./examples/pluralModifier";
 
 class Examples extends Component {
   state = {};
@@ -37,6 +38,8 @@ class Examples extends Component {
         {showExample(++c, "Spread operator", SpreadOperatorExample)}
         {showExample(++c, "Classes and modules", ClassesExample)}
         {showExample(++c, "Dynamic Item List", DynamicItemList)}
+        {showExample(++c, "Plural modifier", DynamicItemList)}
+        {showExample(++c, "Plural modifier", pluralModifierReact())}
       </React.Fragment>
     );
   }
