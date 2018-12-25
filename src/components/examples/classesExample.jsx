@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import Programmer from "../classes/programmer";
 
 class ClassesExample extends Component {

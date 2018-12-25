@@ -6,22 +6,24 @@ class PluralModifier extends Component {
   state = {};
 
   formatText(verb, number, pluralModifier) {
+    const { candidate } = this.props;
     return util.format(
       "There %s %s %s%s",
       verb,
       number,
-      this.props.candidate,
+      candidate,
       pluralModifier
     );
   }
 
   render() {
-    if (this.props.count === "0") {
+    const { count } = this.props;
+    if (count === "0") {
       return this.formatText("are", "no", "s");
-    } else if (this.props.count === "1") {
+    } else if (count === "1") {
       return this.formatText("is", "one", "");
     } else {
-      return this.formatText("are", this.props.count, "s");
+      return this.formatText("are", count, "s");
     }
   }
 }

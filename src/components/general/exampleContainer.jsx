@@ -1,14 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 
-const ExampleContainer = props => {
+const ExampleContainer = ({ title, children }) => {
   const divStyle = {
     color: "red",
     fontSize: 20
   };
   return (
     <div>
-      <div style={divStyle}>{props.title}</div>
-      <div>{props.children}</div>
+      <div style={divStyle}>{title}</div>
+      <div>{children}</div>
     </div>
   );
 };
