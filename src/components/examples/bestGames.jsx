@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { getGames } from "../fixedData/games";
 import PaginationControl from "../general/paginationControl";
 import { paginate } from "../general/paginate";
+import FilterList from "../general/filterList";
 
 class BestGames extends Component {
   state = {
     games: [],
     currentPage: 1,
-    pageSize: 4
+    pageSize: 5,
+    currentFilter: null
   };
 
   componentDidMount() {
@@ -24,9 +26,23 @@ class BestGames extends Component {
     this.setState({ currentPage: page });
   };
 
+  handleFilter = filter => {
+    this.setState({ currentFilter: filter });
+  };
+
   render() {
-    const { games: allGames, currentPage, pageSize } = this.state;
-    const games = paginate(allGames, currentPage, pageSize);
+    const {
+      games: allGames,
+      currentPage,
+      pageSize,
+      currentFilter
+    } = this.state;
+
+    const filteredGames =
+      currentFilter === null
+        ? allGames
+        : allGames.filter(game => game.theme === currentFilter);
+    const games = paginate(filteredGames, currentPage, pageSize);
     return (
       <main className="container">
         <table className="table">
@@ -59,10 +75,16 @@ class BestGames extends Component {
           </tbody>
         </table>
         <PaginationControl
-          listSize={allGames.length}
+          listSize={filteredGames.length}
           pageSize={pageSize}
           currentPage={currentPage}
           onPageChange={this.handlePageChange}
+        />
+        <FilterList
+          items={allGames}
+          filteredField="theme"
+          currentFilter={currentFilter}
+          onFilter={this.handleFilter}
         />
       </main>
     );

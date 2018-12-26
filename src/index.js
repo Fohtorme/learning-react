@@ -9,5 +9,7 @@ import "bootstrap/dist/css/bootstrap.css";
 // create-react-app [name]
 // npm i bootstrap
 // npm install --save react-bootstrap
+// npm i lodash
+// npm i prop-types
 
 ReactDOM.render(<Examples />, document.getElementById("root"));
