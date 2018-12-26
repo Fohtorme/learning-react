@@ -13,6 +13,7 @@ import ClassesExample from "./examples/classesExample";
 import DynamicItemList from "./examples/dynamicList";
 import { pluralModifierReact } from "./examples/pluralModifier";
 import LifecycleHooks from "./examples/lifecycleHooks";
+import BestGames from "./examples/bestGames";
 
 class Examples extends Component {
   state = {};
@@ -40,6 +41,7 @@ class Examples extends Component {
         {showExample(++c, "Dynamic Item List", DynamicItemList)}
         {showExample(++c, "Plural modifier", pluralModifierReact())}
         {showExample(++c, "Lifecycle hooks", LifecycleHooks)}
+        {showExample(++c, "Best games", BestGames)}
       </React.Fragment>
     );
   }
