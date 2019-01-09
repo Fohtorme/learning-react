@@ -3,13 +3,20 @@ import { getGames } from "../fixedData/games";
 import PaginationControl from "../general/paginationControl";
 import { paginate } from "../general/paginate";
 import FilterList from "../general/filterList";
+import _ from "lodash";
+import TableHeader from "../general/tableHeader";
+import TableBody from "../general/tableBody";
 
 class BestGames extends Component {
   state = {
     games: [],
     currentPage: 1,
     pageSize: 5,
-    currentFilter: null
+    currentFilter: null,
+    sort: {
+      path: "",
+      order: ""
+    }
   };
 
   componentDidMount() {
@@ -30,49 +37,56 @@ class BestGames extends Component {
     this.setState({ currentFilter: filter });
   };
 
+  handleSort = path => {
+    let order = "asc";
+    if (path === this.state.sort.path && this.state.sort.order === "asc") {
+      order = "desc";
+    }
+    this.setState({ sort: { path, order } });
+  };
+
   render() {
+    const columns = [
+      { path: "id", label: "ID" },
+      { path: "title", label: "Title" },
+      { path: "theme", label: "Theme" },
+      { path: "rate", label: "Rate" },
+      {
+        key: "delete",
+        label: "Delete",
+        content: item => (
+          <button
+            className="btn btn-danger"
+            onClick={() => this.handleDeleteGame(item)}
+          >
+            X
+          </button>
+        )
+      }
+    ];
+
     const {
       games: allGames,
       currentPage,
       pageSize,
-      currentFilter
+      currentFilter,
+      sort
     } = this.state;
 
     const filteredGames =
       currentFilter === null
         ? allGames
         : allGames.filter(game => game.theme === currentFilter);
-    const games = paginate(filteredGames, currentPage, pageSize);
+
+    const sortedGames = _.orderBy(filteredGames, [sort.path], [sort.order]);
+
+    const games = paginate(sortedGames, currentPage, pageSize);
+
     return (
       <main className="container">
         <table className="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Theme</th>
-              <th>Rate</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {games.map(game => (
-              <tr key={game.id}>
-                <td>{game.id}</td>
-                <td>{game.title}</td>
-                <td>{game.theme}</td>
-                <td>{game.rate}</td>
-                <td>
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => this.handleDeleteGame(game)}
-                  >
-                    X
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+          <TableHeader columns={columns} onSort={this.handleSort} />
+          <TableBody columns={columns} items={games} />
         </table>
         <PaginationControl
           listSize={filteredGames.length}

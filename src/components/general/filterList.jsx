@@ -8,10 +8,6 @@ class FilterList extends Component {
     return Array.from(new Set(filterArray));
   };
 
-  handleFilterClick = () => {
-    console.log("handled it :D");
-  };
-
   render() {
     const { items, filteredField, currentFilter, onFilter } = this.props;
     const filters = this.loadFilters(items, filteredField);
