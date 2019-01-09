@@ -37,12 +37,8 @@ class BestGames extends Component {
     this.setState({ currentFilter: filter });
   };
 
-  handleSort = path => {
-    let order = "asc";
-    if (path === this.state.sort.path && this.state.sort.order === "asc") {
-      order = "desc";
-    }
-    this.setState({ sort: { path, order } });
+  handleSort = sort => {
+    this.setState({ sort });
   };
 
   render() {
@@ -85,7 +81,7 @@ class BestGames extends Component {
     return (
       <main className="container">
         <table className="table">
-          <TableHeader columns={columns} onSort={this.handleSort} />
+          <TableHeader columns={columns} sort={sort} onSort={this.handleSort} />
           <TableBody columns={columns} items={games} />
         </table>
         <PaginationControl

@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Examples from "./components/examples";
 import "bootstrap/dist/css/bootstrap.css";
+import "font-awesome/css/font-awesome.css";
 
 // npm i -g create-react-app
 // VsCode plugin: Simple react snnipets

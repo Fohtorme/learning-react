@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.12",
     "bootstrap": "^4.2.1",
+    "font-awesome": "^4.7.0",
+    "font-awesome-icons": "^1.5.0",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
