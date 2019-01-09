@@ -4,8 +4,7 @@ import PaginationControl from "../general/paginationControl";
 import { paginate } from "../general/paginate";
 import FilterList from "../general/filterList";
 import _ from "lodash";
-import TableHeader from "../general/tableHeader";
-import TableBody from "../general/tableBody";
+import Table from "./../general/table";
 
 class BestGames extends Component {
   state = {
@@ -80,10 +79,12 @@ class BestGames extends Component {
 
     return (
       <main className="container">
-        <table className="table">
-          <TableHeader columns={columns} sort={sort} onSort={this.handleSort} />
-          <TableBody columns={columns} items={games} />
-        </table>
+        <Table
+          columns={columns}
+          sort={sort}
+          onSort={this.handleSort}
+          items={games}
+        />
         <PaginationControl
           listSize={filteredGames.length}
           pageSize={pageSize}
