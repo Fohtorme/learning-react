@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const TableBody = props => {
   const { columns, items } = props;
@@ -7,7 +7,7 @@ const TableBody = props => {
       {items.map(item => (
         <tr key={item.id}>
           {columns.map(column => (
-            <td key={column.path || column.key}>
+            <td key={item.id + (column.path || column.key)}>
               {item[column.path] || column.content(item)}
             </td>
           ))}
