@@ -14,6 +14,7 @@ import DynamicItemList from "./examples/dynamicList";
 import { pluralModifierReact } from "./examples/pluralModifier";
 import LifecycleHooks from "./examples/lifecycleHooks";
 import BestGames from "./examples/bestGames";
+import Router from "./general/router";
 
 class Examples extends Component {
   state = {};
@@ -25,25 +26,94 @@ class Examples extends Component {
         </ExampleContainer>
       );
     };
+
     let c = 0;
-    return (
-      <React.Fragment>
-        {showExample(++c, "Hello World", HelloWorld)}
-        {showExample(++c, "Let vs Var vs Const", LetVarConst)}
-        {showExample(++c, "Objects", ObjectsExample)}
-        {showExample(++c, "This Keyword", ThisKeyword)}
-        {showExample(++c, "Arrow Function", ArrowFunction)}
-        {showExample(++c, "Arrow Function and this", ArrowFunctionAndThis)}
-        {showExample(++c, "ArrayMap", ArrayMapExample)}
-        {showExample(++c, "Object destructuring", ObjectDesctructuringExample)}
-        {showExample(++c, "Spread operator", SpreadOperatorExample)}
-        {showExample(++c, "Classes and modules", ClassesExample)}
-        {showExample(++c, "Dynamic Item List", DynamicItemList)}
-        {showExample(++c, "Plural modifier", pluralModifierReact())}
-        {showExample(++c, "Lifecycle hooks", LifecycleHooks)}
-        {showExample(++c, "Best games", BestGames)}
-      </React.Fragment>
-    );
+    const mainLink = {
+      path: "/",
+      label: "LEARNING REACT",
+      component: null
+    };
+    const links = [
+      {
+        path: "/HelloWorld",
+        label: "HelloWorld",
+        component: showExample(++c, "Hello World", HelloWorld)
+      },
+      {
+        path: "/LetVarConst",
+        label: "LetVarConst",
+        component: showExample(++c, "Let vs Var vs Const", LetVarConst)
+      },
+      {
+        path: "/ObjectsExample",
+        label: "ObjectsExample",
+        component: showExample(++c, "Objects", ObjectsExample)
+      },
+      {
+        path: "/ThisKeyword",
+        label: "ThisKeyword",
+        component: showExample(++c, "This Keyword", ThisKeyword)
+      },
+      {
+        path: "/ArrowFunction",
+        label: "ArrowFunction",
+        component: showExample(++c, "Arrow Function", ArrowFunction)
+      },
+      {
+        path: "/ArrowFunctionAndThis",
+        label: "ArrowFunctionAndThis",
+        component: showExample(
+          ++c,
+          "Arrow Function and this",
+          ArrowFunctionAndThis
+        )
+      },
+      {
+        path: "/ArrayMapExample",
+        label: "ArrayMapExample",
+        component: showExample(++c, "ArrayMap", ArrayMapExample)
+      },
+      {
+        path: "/ObjectDesctructuringExample",
+        label: "ObjectDesctructuringExample",
+        component: showExample(
+          ++c,
+          "Object destructuring",
+          ObjectDesctructuringExample
+        )
+      },
+      {
+        path: "/SpreadOperatorExample",
+        label: "SpreadOperatorExample",
+        component: showExample(++c, "Spread operator", SpreadOperatorExample)
+      },
+      {
+        path: "/ClassesExample",
+        label: "ClassesExample",
+        component: showExample(++c, "Classes and modules", ClassesExample)
+      },
+      {
+        path: "/DynamicItemList",
+        label: "DynamicItemList",
+        component: showExample(++c, "Dynamic Item List", DynamicItemList)
+      },
+      {
+        path: "/PluralModifier",
+        label: "PluralModifier",
+        component: showExample(++c, "Plural modifier", pluralModifierReact())
+      },
+      {
+        path: "/LifecycleHooks",
+        label: "LifecycleHooks",
+        component: showExample(++c, "Lifecycle hooks", LifecycleHooks)
+      },
+      {
+        path: "/BestGames",
+        label: "BestGames",
+        component: showExample(++c, "Best games", BestGames)
+      }
+    ];
+    return <Router mainLink={mainLink} links={links} />;
   }
 }
 
