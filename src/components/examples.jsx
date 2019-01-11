@@ -18,7 +18,8 @@ import Router from "./general/router";
 
 class Examples extends Component {
   state = {};
-  render() {
+
+  getLinks() {
     const showExample = function(code, name, Component) {
       return (
         <ExampleContainer title={`*** Example ${code} - ${name}`}>
@@ -26,14 +27,8 @@ class Examples extends Component {
         </ExampleContainer>
       );
     };
-
     let c = 0;
-    const mainLink = {
-      path: "/",
-      label: "LEARNING REACT",
-      component: null
-    };
-    const links = [
+    return [
       {
         path: "/HelloWorld",
         label: "HelloWorld",
@@ -113,7 +108,15 @@ class Examples extends Component {
         component: showExample(++c, "Best games", BestGames)
       }
     ];
-    return <Router mainLink={mainLink} links={links} />;
+  }
+
+  render() {
+    const mainLink = {
+      path: "/",
+      label: "LEARNING REACT",
+      component: null
+    };
+    return <Router mainLink={mainLink} links={this.getLinks()} />;
   }
 }
 
